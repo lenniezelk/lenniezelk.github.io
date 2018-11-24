@@ -1,0 +1,4 @@
+Sitemap: http://lkioi.me/sitemapindex.xml
+
+User-Agent: *
+Host: lkioi.me

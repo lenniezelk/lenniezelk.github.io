@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk</title><link>http://lkioi.me/</link><description>Rants and musings of Leonard Kioi a sofware developer and cycling enthusiast from Nairobi, Kenya</description><atom:link href="http://lkioi.me/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Sat, 24 Nov 2018 11:34:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Type hints in Python</title><link>http://lkioi.me/posts/type-hints-in-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
+readability and I agree with them. I have been using Python for the past five years and its annoying having to read a
+function body in order know the type of parameters passed in. If its a dictionary passed in or tuple its worse because you
+have to look through the code to know the types being passed. I've had to add print statements to determine the type being
+passed in.&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;In the code above &lt;code&gt;project&lt;/code&gt; and  &lt;code&gt;date&lt;/code&gt; could be anything. Proper naming of the variables helps but still, &lt;code&gt;project&lt;/code&gt; could
+be an &lt;code&gt;int&lt;/code&gt;, the project database id or a user defined class instance. &lt;code&gt;date&lt;/code&gt; could be an &lt;code&gt;int&lt;/code&gt; or &lt;code&gt;datetime.date&lt;/code&gt; object.
+This is the problem typing module was added to solve. I don't think types within the function body are a huge deal since
+you can usually determine this from the context, even in Kotlin you don't have to specify the type when declaring a variable
+it can usually be infered from the context.&lt;/p&gt;&lt;/div&gt;</description><category>programmming</category><category>python</category><guid>http://lkioi.me/posts/type-hints-in-python/</guid><pubDate>Sat, 24 Nov 2018 11:11:52 GMT</pubDate></item></channel></rss>
