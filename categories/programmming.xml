@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk (Posts about programmming)</title><link>http://lkioi.me/</link><description></description><atom:link href="http://lkioi.me/categories/programmming.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Sat, 24 Nov 2018 11:34:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Type hints in Python</title><link>http://lkioi.me/posts/type-hints-in-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk (Posts about programmming)</title><link>http://lkioi.me/</link><description></description><atom:link href="http://lkioi.me/categories/programmming.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Sat, 24 Nov 2018 15:11:03 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Improving readability of Python code</title><link>http://lkioi.me/posts/type-hints-in-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Readability of code as defined in wikipedia:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,
+control flow, and operation of source code
+&lt;/pre&gt;
+
+
+&lt;p&gt;Python is one of the most readable programming languages out there but we can still improve this more by following software
+development best practises and tools provided by Python core language and the Python community. By software development best practises
+I am referring to writing clean code. Watch things like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use good descriptive variable and function names&lt;/li&gt;
+&lt;li&gt;Follow SOLID priciples&lt;/li&gt;
+&lt;li&gt;Keep functions short&lt;/li&gt;
+&lt;li&gt;Follow coding conventions for your programming language e.g PEP8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For Python, type hinting is also a good option since version 3.5. This will be my main focus for this article.&lt;/p&gt;
+&lt;p&gt;In this article I am only going to refer to tools specific to Python, later I will add another article on SOLID with examples in Python.
+Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
 readability and I agree with them. I have been using Python for the past five years and its annoying having to read a
 function body in order know the type of parameters passed in. If its a dictionary passed in or tuple its worse because you
-have to look through the code to know the types being passed. I've had to add print statements to determine the type being
-passed in.&lt;/p&gt;
+have to look through the code to know the type of keys and values of the &lt;code&gt;dict&lt;/code&gt;. I've had to add print statements to determine
+the type being passed in.&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
@@ -14,4 +31,27 @@ passed in.&lt;/p&gt;
 be an &lt;code&gt;int&lt;/code&gt;, the project database id or a user defined class instance. &lt;code&gt;date&lt;/code&gt; could be an &lt;code&gt;int&lt;/code&gt; or &lt;code&gt;datetime.date&lt;/code&gt; object.
 This is the problem typing module was added to solve. I don't think types within the function body are a huge deal since
 you can usually determine this from the context, even in Kotlin you don't have to specify the type when declaring a variable
-it can usually be infered from the context.&lt;/p&gt;&lt;/div&gt;</description><category>programmming</category><category>python</category><guid>http://lkioi.me/posts/type-hints-in-python/</guid><pubDate>Sat, 24 Nov 2018 11:11:52 GMT</pubDate></item></channel></rss>
+it can usually be infered from the context.&lt;/p&gt;
+&lt;p&gt;With Python's type hints you can specify the parameter being passed to a function.&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;.projects&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;I'm a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
+takes their descriptiveness to a new level. You can specify the type for the field names.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NamedTuple&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Truck&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NamedTuple&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;num_wheels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
+    &lt;span class="n"&gt;num_axles&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>programmming</category><category>python</category><guid>http://lkioi.me/posts/type-hints-in-python/</guid><pubDate>Sat, 24 Nov 2018 11:11:52 GMT</pubDate></item></channel></rss>

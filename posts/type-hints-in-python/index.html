@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Type hints in Python | lk</title>
+<title>Improving readability of Python code | lk</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <meta name="theme-color" content="#5670d4">
@@ -12,10 +12,14 @@
 <link rel="canonical" href="http://lkioi.me/posts/type-hints-in-python/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Leonard Kioi">
 <meta property="og:site_name" content="lk">
-<meta property="og:title" content="Type hints in Python">
+<meta property="og:title" content="Improving readability of Python code">
 <meta property="og:url" content="http://lkioi.me/posts/type-hints-in-python/">
-<meta property="og:description" content="Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
-readability and I agree with them. I have been using Python for the past five y">
+<meta property="og:description" content="Readability of code as defined in wikipedia:
+In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,
+control flow, and operation of source code
+
+
+">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2018-11-24T14:11:52+03:00">
 <meta property="article:tag" content="programmming">
@@ -76,7 +80,7 @@ readability and I agree with them. I have been using Python for the past five y"
         <!--Body content-->
         
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Type hints in Python</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Improving readability of Python code</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
@@ -94,11 +98,28 @@ readability and I agree with them. I have been using Python for the past five y"
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
+<p>Readability of code as defined in wikipedia:</p>
+<pre class="code literal-block"><span></span>In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,
+control flow, and operation of source code
+</pre>
+
+
+<p>Python is one of the most readable programming languages out there but we can still improve this more by following software
+development best practises and tools provided by Python core language and the Python community. By software development best practises
+I am referring to writing clean code. Watch things like:</p>
+<ul>
+<li>Use good descriptive variable and function names</li>
+<li>Follow SOLID priciples</li>
+<li>Keep functions short</li>
+<li>Follow coding conventions for your programming language e.g PEP8</li>
+</ul>
+<p>For Python, type hinting is also a good option since version 3.5. This will be my main focus for this article.</p>
+<p>In this article I am only going to refer to tools specific to Python, later I will add another article on SOLID with examples in Python.
+Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
 readability and I agree with them. I have been using Python for the past five years and its annoying having to read a
 function body in order know the type of parameters passed in. If its a dictionary passed in or tuple its worse because you
-have to look through the code to know the types being passed. I've had to add print statements to determine the type being
-passed in.</p>
+have to look through the code to know the type of keys and values of the <code>dict</code>. I've had to add print statements to determine
+the type being passed in.</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td>
@@ -113,6 +134,32 @@ be an <code>int</code>, the project database id or a user defined class instance
 This is the problem typing module was added to solve. I don't think types within the function body are a huge deal since
 you can usually determine this from the context, even in Kotlin you don't have to specify the type when declaring a variable
 it can usually be infered from the context.</p>
+<p>With Python's type hints you can specify the parameter being passed to a function.</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="kn">from</span> <span class="nn">.projects</span> <span class="kn">import</span> <span class="n">Project</span>
+
+<span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="n">date</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre>
+</td>
+</tr></table>
+<p>I'm a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
+takes their descriptiveness to a new level. You can specify the type for the field names.</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+
+<span class="k">class</span> <span class="nc">Truck</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">num_wheels</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">num_axles</span><span class="p">:</span> <span class="nb">int</span>
+</pre>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

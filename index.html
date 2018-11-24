@@ -67,7 +67,7 @@
     
         
     <div class="postindex">
-            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/type-hints-in-python/" class="u-url">Type hints in Python</a></h1>
+            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/type-hints-in-python/" class="u-url">Improving readability of Python code</a></h1>
                 <div class="metadata">
                     <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                         Leonard Kioi
@@ -79,11 +79,28 @@
                 </div>
             </header><div class="e-content entry-content">
                     <div>
-<p>Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
+<p>Readability of code as defined in wikipedia:</p>
+<pre class="code literal-block"><span></span>In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,
+control flow, and operation of source code
+</pre>
+
+
+<p>Python is one of the most readable programming languages out there but we can still improve this more by following software
+development best practises and tools provided by Python core language and the Python community. By software development best practises
+I am referring to writing clean code. Watch things like:</p>
+<ul>
+<li>Use good descriptive variable and function names</li>
+<li>Follow SOLID priciples</li>
+<li>Keep functions short</li>
+<li>Follow coding conventions for your programming language e.g PEP8</li>
+</ul>
+<p>For Python, type hinting is also a good option since version 3.5. This will be my main focus for this article.</p>
+<p>In this article I am only going to refer to tools specific to Python, later I will add another article on SOLID with examples in Python.
+Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
 readability and I agree with them. I have been using Python for the past five years and its annoying having to read a
 function body in order know the type of parameters passed in. If its a dictionary passed in or tuple its worse because you
-have to look through the code to know the types being passed. I've had to add print statements to determine the type being
-passed in.</p>
+have to look through the code to know the type of keys and values of the <code>dict</code>. I've had to add print statements to determine
+the type being passed in.</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td>
@@ -98,6 +115,32 @@ be an <code>int</code>, the project database id or a user defined class instance
 This is the problem typing module was added to solve. I don't think types within the function body are a huge deal since
 you can usually determine this from the context, even in Kotlin you don't have to specify the type when declaring a variable
 it can usually be infered from the context.</p>
+<p>With Python's type hints you can specify the parameter being passed to a function.</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="kn">from</span> <span class="nn">.projects</span> <span class="kn">import</span> <span class="n">Project</span>
+
+<span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="n">date</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre>
+</td>
+</tr></table>
+<p>I'm a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
+takes their descriptiveness to a new level. You can specify the type for the field names.</p>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+
+<span class="k">class</span> <span class="nc">Truck</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">num_wheels</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">num_axles</span><span class="p">:</span> <span class="nb">int</span>
+</pre>
 </div>
                 </div>
             </article>
