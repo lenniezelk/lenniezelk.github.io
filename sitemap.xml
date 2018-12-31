@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://lkioi.me/</loc>
-  <lastmod>2018-11-24T11:11:00Z</lastmod>
+  <lastmod>2018-11-24T15:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/2018/</loc>
@@ -15,15 +15,35 @@
  </url>
  <url>
   <loc>http://lkioi.me/archive.html</loc>
-  <lastmod>2018-11-24T11:11:00Z</lastmod>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/</loc>
-  <lastmod>2018-11-24T11:34:00Z</lastmod>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/categories/cat_faith/</loc>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/cat_python/</loc>
   <lastmod>2018-11-24T11:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/categories/christianity/</loc>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/categories/faith/</loc>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/categories/justice/</loc>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/categories/kenya/</loc>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/programmming/</loc>
@@ -48,6 +68,10 @@
  <url>
   <loc>http://lkioi.me/pages/about/</loc>
   <lastmod>2018-11-24T10:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/posts/justice-shall-prevail/</loc>
+  <lastmod>2018-12-31T09:37:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/type-hints-in-python/</loc>
