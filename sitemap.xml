@@ -7,15 +7,19 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://lkioi.me/</loc>
-  <lastmod>2018-11-24T15:29:00Z</lastmod>
+  <lastmod>2019-01-22T08:42:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/2018/</loc>
   <lastmod>2018-11-24T11:11:00Z</lastmod>
  </url>
  <url>
+  <loc>http://lkioi.me/2019/</loc>
+  <lastmod>2019-01-22T08:42:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://lkioi.me/archive.html</loc>
-  <lastmod>2018-12-31T09:37:00Z</lastmod>
+  <lastmod>2019-01-23T07:56:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/</loc>
@@ -63,11 +67,15 @@
  </url>
  <url>
   <loc>http://lkioi.me/listings/hello.py.html</loc>
-  <lastmod>2018-11-24T10:23:00Z</lastmod>
+  <lastmod>2019-01-23T07:56:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/pages/about/</loc>
   <lastmod>2018-11-24T10:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/posts/broken-child-now-man-full-of-hope/</loc>
+  <lastmod>2019-01-22T08:42:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/justice-shall-prevail/</loc>
