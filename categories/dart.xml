@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk (Posts about dart)</title><link>http://lkioi.me/</link><description></description><atom:link href="http://lkioi.me/categories/dart.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Tue, 28 May 2019 09:09:05 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting up Dart for local development</title><link>http://lkioi.me/posts/setting-up-dart-for-local-development/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;I've been learning Flutter for mobile development lately. I like the journey so far and I'm going to be posting stuff I learn along the way. First i'll show how to setup Dart for local development. I use &lt;code&gt;asdf&lt;/code&gt; for managing different versions of language runtimes on my local machine. I found out about it when trying to setup different Python versions. My dev machine comes with Python 3.7 but at work we use Python 3.6 and I like having the exact version in use. What to do? &lt;code&gt;asdf&lt;/code&gt; to the rescue. &lt;code&gt;asdf&lt;/code&gt; has a plugin system that allows allows the installation of different langauge runtimes for example you can install Python 3.5, 3.6 and 3.8 on the same machine and switch between them. A lot of langauges are supported you can find these &lt;a href="https://asdf-vm.com/#/plugins-all"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To setup &lt;code&gt;asdf&lt;/code&gt; run:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Replace &lt;code&gt;0.7.2&lt;/code&gt; with the latest version which you can find &lt;a href="https://github.com/asdf-vm/asdf/releases"&gt;here&lt;/a&gt;. Next add &lt;code&gt;asdf&lt;/code&gt; to your shell like so:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s1"&gt;'\n. $HOME/.asdf/asdf.sh'&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s1"&gt;'\n. $HOME/.asdf/completions/asdf.bash'&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Remember to replace &lt;code&gt;.zshrc&lt;/code&gt; with your shell specific config file e.g .bashrc. Reload your config file &lt;code&gt;source .zshrc&lt;/code&gt;. You are good to go.&lt;/p&gt;
+&lt;p&gt;Now lets setup dart. We begin by installing the dart plugin:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf plugin-add dart
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Now we can install dart sdk and tools by running:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf install dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Replace 3.2.1 with the latest version or the version you want. You can find these &lt;a href="https://github.com/dart-lang/sdk/releases"&gt;here&lt;/a&gt;. You need to choose a global version. This is the version that will be run when you type &lt;code&gt;dart&lt;/code&gt; in any shell. You can do this by:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf global dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;You can also set a version to be used only in the current shell:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf &lt;span class="nb"&gt;local&lt;/span&gt; dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Happy darting.&lt;/p&gt;&lt;/div&gt;</description><category>dart</category><category>flutter</category><category>programming</category><guid>http://lkioi.me/posts/setting-up-dart-for-local-development/</guid><pubDate>Tue, 28 May 2019 08:23:34 GMT</pubDate></item></channel></rss>

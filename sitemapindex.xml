@@ -18,8 +18,16 @@
   <lastmod>2019-05-28T08:25:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://lkioi.me/categories/dart.xml</loc>
+  <lastmod>2019-05-28T09:09:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://lkioi.me/categories/faith.xml</loc>
   <lastmod>2019-05-28T08:25:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://lkioi.me/categories/flutter.xml</loc>
+  <lastmod>2019-05-28T09:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/justice.xml</loc>
@@ -28,6 +36,10 @@
  <sitemap>
   <loc>http://lkioi.me/categories/kenya.xml</loc>
   <lastmod>2019-05-28T08:25:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://lkioi.me/categories/programming.xml</loc>
+  <lastmod>2019-05-28T09:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/programmming.xml</loc>
@@ -39,10 +51,10 @@
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/rss.xml</loc>
-  <lastmod>2019-05-28T08:25:00Z</lastmod>
+  <lastmod>2019-05-28T09:09:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/sitemap.xml</loc>
-  <lastmod>2019-05-28T08:25:00Z</lastmod>
+  <lastmod>2019-05-28T09:09:00Z</lastmod>
  </sitemap>
 </sitemapindex>
