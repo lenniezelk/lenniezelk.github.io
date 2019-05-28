@@ -2,7 +2,7 @@
 .. title: Setting up Dart for local development
 .. slug: setting-up-dart-for-local-development
 .. date: 2019-05-28 11:23:34 UTC+03:00
-.. tags: 
+.. tags: dart, flutter, programming
 .. category: 
 .. link: 
 .. description: 
