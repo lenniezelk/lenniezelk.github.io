@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setting up Dart for local development | lk</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://lkioi.me/posts/setting-up-dart-for-local-development/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Leonard Kioi">
+<link rel="prev" href="../get-your-prs-merged-faster/" title="Get your PRs merged faster" type="text/html">
+<meta property="og:site_name" content="lk">
+<meta property="og:title" content="Setting up Dart for local development">
+<meta property="og:url" content="http://lkioi.me/posts/setting-up-dart-for-local-development/">
+<meta property="og:description" content="I've been learning Flutter for mobile development lately. I like the journey so far and I'm going to be posting stuff I learn along the way. First i'll show how to setup Dart for local development. I ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-05-28T11:23:34+03:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Header and menu bar -->
+<div class="container">
+      <header class="blog-header py-3"><div class="row nbb-header align-items-center">
+          <div class="col-md-3 col-xs-2 col-sm-2" style="width: auto;">
+            <button class="navbar-toggler navbar-light bg-light nbb-navbar-toggler" type="button" data-toggle="collapse" data-target=".bs-nav-collapsible" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse bs-nav-collapsible bootblog4-search-form-holder">
+                
+            </div>
+        </div>
+          <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
+            <a class="navbar-brand blog-header-logo text-dark" href="http://lkioi.me/">
+
+            <span id="blog-title">lk</span>
+        </a>
+          </div>
+            <div class="col-md-3 justify-content-end align-items-center bs-nav-collapsible collapse flex-collapse bootblog4-right-nav">
+            <nav class="navbar navbar-light bg-white"><ul class="navbar-nav bootblog4-right-nav">
+<li class="nav-item">
+    <a href="index.md" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                    
+            </ul></nav>
+</div>
+    </div>
+</header><nav class="navbar navbar-expand-md navbar-light bg-white static-top"><div class="collapse navbar-collapse bs-nav-collapsible" id="bs-navbar">
+            <ul class="navbar-nav nav-fill d-flex w-100">
+<li class="nav-item">
+<a href="../../archive.html" class="nav-link">Archive</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">Tags</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS feed</a>
+                </li>
+<li class="nav-item">
+<a href="../../pages/about" class="nav-link">About</a>
+
+                
+            </li>
+</ul>
+</div>
+<!-- /.navbar-collapse -->
+</nav>
+</div>
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Setting up Dart for local development</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Leonard Kioi
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2019-05-28T11:23:34+03:00" itemprop="datePublished" title="2019-05-28 11:23">2019-05-28 11:23</time></a>
+            </p>
+            
+        <p class="sourceline"><a href="index.md" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>I've been learning Flutter for mobile development lately. I like the journey so far and I'm going to be posting stuff I learn along the way. First i'll show how to setup Dart for local development. I use <code>asdf</code> for managing different versions of language runtimes on my local machine. I found out about it when trying to setup different Python versions. My dev machine comes with Python 3.7 but at work we use Python 3.6 and I like having the exact version in use. What to do? <code>asdf</code> to the rescue. <code>asdf</code> has a plugin system that allows allows the installation of different langauge runtimes for example you can install Python 3.5, 3.6 and 3.8 on the same machine and switch between them. A lot of langauges are supported you can find these <a href="https://asdf-vm.com/#/plugins-all">here</a>.</p>
+<p>To setup <code>asdf</code> run:</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span>git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2<span class="sb">`</span>
+</pre>
+</td>
+</tr></table>
+<p>Replace <code>0.7.2</code> with the latest version which you can find <a href="https://github.com/asdf-vm/asdf/releases">here</a>. Next add <code>asdf</code> to your shell like so:</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span><span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/asdf.sh'</span> &gt;&gt; ~/.zshrc
+<span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/completions/asdf.bash'</span> &gt;&gt; ~/.zshrc
+</pre>
+</td>
+</tr></table>
+<p>Remember to replace <code>.zshrc</code> with your shell specific config file e.g .bashrc. Reload your config file <code>source .zshrc</code>. You are good to go.</p>
+<p>Now lets setup dart. We begin by installing the dart plugin:</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span>asdf plugin-add dart
+</pre>
+</td>
+</tr></table>
+<p>Now we can install dart sdk and tools by running:</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span>asdf install dart <span class="m">2</span>.3.1
+</pre>
+</td>
+</tr></table>
+<p>Replace 3.2.1 with the latest version or the version you want. You can find these <a href="https://github.com/dart-lang/sdk/releases">here</a>. You need to choose a global version. This is the version that will be run when you type <code>dart</code> in any shell. You can do this by:</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span>asdf global dart <span class="m">2</span>.3.1
+</pre>
+</td>
+</tr></table>
+<p>You can also set a version to be used only in the current shell:</p>
+<table class="codehilitetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
+<td class="code">
+<pre class="code literal-block"><span></span>asdf <span class="nb">local</span> dart <span class="m">2</span>.3.1
+</pre>
+</td>
+</tr></table>
+<p>Happy darting.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../get-your-prs-merged-faster/" rel="prev" title="Get your PRs merged faster">Previous post</a>
+            </li>
+        </ul></nav></aside></article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:lenny.kinyanjui.lk@gmail.com">Leonard Kioi</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

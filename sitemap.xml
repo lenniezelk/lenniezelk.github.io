@@ -7,82 +7,86 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://lkioi.me/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/2018/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/2019/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/archive.html</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/cat_faith/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/cat_python/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/christianity/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/faith/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/justice/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/kenya/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/programmming/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/python/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/listings/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/listings/hello.py.html</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/pages/about/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/broken-child-now-man-full-of-hope/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/get-your-prs-merged-faster/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/justice-shall-prevail/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/posts/setting-up-dart-for-local-development/</loc>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/type-hints-in-python/</loc>
-  <lastmod>2019-03-11T08:38:00Z</lastmod>
+  <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
 </urlset>
