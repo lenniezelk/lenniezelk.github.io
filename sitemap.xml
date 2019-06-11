@@ -19,11 +19,11 @@
  </url>
  <url>
   <loc>http://lkioi.me/archive.html</loc>
-  <lastmod>2019-05-28T08:25:00Z</lastmod>
+  <lastmod>2019-06-11T06:16:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/</loc>
-  <lastmod>2019-05-28T09:09:00Z</lastmod>
+  <lastmod>2019-06-11T06:16:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/cat_faith/</loc>
@@ -40,6 +40,10 @@
  <url>
   <loc>http://lkioi.me/categories/dart/</loc>
   <lastmod>2019-05-28T09:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/categories/diversity/</loc>
+  <lastmod>2019-06-11T06:16:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/faith/</loc>
@@ -70,6 +74,10 @@
   <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
  <url>
+  <loc>http://lkioi.me/categories/tribe/</loc>
+  <lastmod>2019-06-11T06:16:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://lkioi.me/listings/</loc>
   <lastmod>2019-05-28T08:25:00Z</lastmod>
  </url>
@@ -96,6 +104,10 @@
  <url>
   <loc>http://lkioi.me/posts/setting-up-dart-for-local-development/</loc>
   <lastmod>2019-05-28T08:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/posts/tribal-hijacking/</loc>
+  <lastmod>2019-06-11T06:16:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/type-hints-in-python/</loc>
