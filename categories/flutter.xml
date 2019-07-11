@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk (Posts about flutter)</title><link>http://lkioi.me/</link><description></description><atom:link href="http://lkioi.me/categories/flutter.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Tue, 28 May 2019 09:09:05 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting up Dart for local development</title><link>http://lkioi.me/posts/setting-up-dart-for-local-development/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;I've been learning Flutter for mobile development lately. I like the journey so far and I'm going to be posting stuff I learn along the way. First i'll show how to setup Dart for local development. I use &lt;code&gt;asdf&lt;/code&gt; for managing different versions of language runtimes on my local machine. I found out about it when trying to setup different Python versions. My dev machine comes with Python 3.7 but at work we use Python 3.6 and I like having the exact version in use. What to do? &lt;code&gt;asdf&lt;/code&gt; to the rescue. &lt;code&gt;asdf&lt;/code&gt; has a plugin system that allows allows the installation of different langauge runtimes for example you can install Python 3.5, 3.6 and 3.8 on the same machine and switch between them. A lot of langauges are supported you can find these &lt;a href="https://asdf-vm.com/#/plugins-all"&gt;here&lt;/a&gt;.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk (Posts about flutter)</title><link>http://lkioi.me/</link><description></description><atom:link href="http://lkioi.me/categories/flutter.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Thu, 11 Jul 2019 08:27:53 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Flutter loading screen with future builder</title><link>http://lkioi.me/posts/flutter-loading-screen-with-future-builder/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;When developing UIs you need to give the user some feedback on a long running process. A loading widget is normally the go to solution. In React you would have a boolean property in the components state. If for example you are fetching some data from the internet, you would set the boolean to &lt;code&gt;true&lt;/code&gt;. In the component's &lt;code&gt;render&lt;/code&gt; method you would display a loading widget based on the value of that boolean property. When you have your data you show the right component. Something like:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/e4e394e64d585714ff0d555103948dd7.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;import React from 'react'
+import axios from 'axios'
+
+import Loading from './Loading.jsx'
+import Posts from './Posts.jsx'
+
+class Page extends React.Component {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      loading: false,
+      posts: [],
+    }
+  }
+  
+  componentDidMount() {
+    this.fetchData()
+  }
+  
+  async fetchData() {
+    this.setState({loading: true})
+    
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    this.setState({loading: false, posts: response})
+  }
+  
+  render() {
+    const {loading, posts} = this.state
+    
+    {loading ? &amp;lt;Loading /&amp;gt; : &amp;lt;Posts posts={posts} /&amp;gt;}
+  }
+}
+&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This can be achieved easily in Flutter with &lt;a href="https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html"&gt;Future Builder&lt;/a&gt;. FutureBuilder allows you to specify a future and a builder function. The builder function will be passed snapshots based on the state of the future. You can then check the snapshot and display your loading widget. The same can be achieved by using viewmodels and state management tools like &lt;a href="https://pub.dev/packages/provider"&gt;Provide&lt;/a&gt;. This is so much easier though. Example:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/7275c14bcd1b61d3e190b80b4895c524.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+class MyHomePage extends StatelessWidget {
+  Future&amp;lt;String&amp;gt; getPosts() async {
+    var resp = await http.get('https://jsonplaceholder.typicode.com/posts');
+    return resp.body;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder&amp;lt;String&amp;gt;(
+        future: getPosts(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Text(
+              'There was an error :(',
+              style: Theme.of(context).textTheme.headline,
+            );
+          } else if (snapshot.hasData) {
+            var count = json.decode(snapshot.data).length;
+            return Text(
+              'You have $count posts.',
+              style: Theme.of(context).textTheme.headline,
+            );
+          } else {
+            return CircularProgressIndicator();
+          }
+        });
+  }
+}&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><category>dart</category><category>flutter</category><category>programming</category><guid>http://lkioi.me/posts/flutter-loading-screen-with-future-builder/</guid><pubDate>Thu, 11 Jul 2019 07:43:59 GMT</pubDate></item><item><title>Setting up Dart for local development</title><link>http://lkioi.me/posts/setting-up-dart-for-local-development/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;I've been learning Flutter for mobile development lately. I like the journey so far and I'm going to be posting stuff I learn along the way. First i'll show how to setup Dart for local development. I use &lt;code&gt;asdf&lt;/code&gt; for managing different versions of language runtimes on my local machine. I found out about it when trying to setup different Python versions. My dev machine comes with Python 3.7 but at work we use Python 3.6 and I like having the exact version in use. What to do? &lt;code&gt;asdf&lt;/code&gt; to the rescue. &lt;code&gt;asdf&lt;/code&gt; has a plugin system that allows allows the installation of different langauge runtimes for example you can install Python 3.5, 3.6 and 3.8 on the same machine and switch between them. A lot of langauges are supported you can find these &lt;a href="https://asdf-vm.com/#/plugins-all"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To setup &lt;code&gt;asdf&lt;/code&gt; run:&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2&lt;span class="sb"&gt;`&lt;/span&gt;
 &lt;/pre&gt;

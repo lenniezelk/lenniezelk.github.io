@@ -2,7 +2,7 @@
 .. title: Flutter loading screen with future builder
 .. slug: flutter-loading-screen-with-future-builder
 .. date: 2019-07-11 10:43:59 UTC+03:00
-.. tags: 
+.. tags: flutter, programming, dart
 .. category: 
 .. link: 
 .. description: 
