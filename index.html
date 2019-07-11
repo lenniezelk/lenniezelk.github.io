@@ -11,7 +11,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="http://lkioi.me/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/tribal-hijacking/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/flutter-loading-screen-with-future-builder/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -70,7 +70,102 @@
     
         
     <div class="postindex">
-            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/tribal-hijacking/" class="u-url">Tribal hijacking</a></h1>
+            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/flutter-loading-screen-with-future-builder/" class="u-url">Flutter loading screen with future builder</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Leonard Kioi
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/flutter-loading-screen-with-future-builder/" rel="bookmark">
+            <time class="published dt-published" datetime="2019-07-11T10:43:59+03:00" itemprop="datePublished" title="2019-07-11 10:43">2019-07-11 10:43</time></a>
+            </p>
+                </div>
+            </header><div class="e-content entry-content">
+                    <div>
+<p>When developing UIs you need to give the user some feedback on a long running process. A loading widget is normally the go to solution. In React you would have a boolean property in the components state. If for example you are fetching some data from the internet, you would set the boolean to <code>true</code>. In the component's <code>render</code> method you would display a loading widget based on the value of that boolean property. When you have your data you show the right component. Something like:</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/e4e394e64d585714ff0d555103948dd7.js"></script><noscript>
+<pre>import React from 'react'
+import axios from 'axios'
+
+import Loading from './Loading.jsx'
+import Posts from './Posts.jsx'
+
+class Page extends React.Component {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      loading: false,
+      posts: [],
+    }
+  }
+  
+  componentDidMount() {
+    this.fetchData()
+  }
+  
+  async fetchData() {
+    this.setState({loading: true})
+    
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    this.setState({loading: false, posts: response})
+  }
+  
+  render() {
+    const {loading, posts} = this.state
+    
+    {loading ? &lt;Loading /&gt; : &lt;Posts posts={posts} /&gt;}
+  }
+}
+</pre>
+</noscript>
+</div>
+
+<p>This can be achieved easily in Flutter with <a href="https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html">Future Builder</a>. FutureBuilder allows you to specify a future and a builder function. The builder function will be passed snapshots based on the state of the future. You can then check the snapshot and display your loading widget. The same can be achieved by using viewmodels and state management tools like <a href="https://pub.dev/packages/provider">Provide</a>. This is so much easier though. Example:</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/7275c14bcd1b61d3e190b80b4895c524.js"></script><noscript>
+<pre>import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+class MyHomePage extends StatelessWidget {
+  Future&lt;String&gt; getPosts() async {
+    var resp = await http.get('https://jsonplaceholder.typicode.com/posts');
+    return resp.body;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder&lt;String&gt;(
+        future: getPosts(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Text(
+              'There was an error :(',
+              style: Theme.of(context).textTheme.headline,
+            );
+          } else if (snapshot.hasData) {
+            var count = json.decode(snapshot.data).length;
+            return Text(
+              'You have $count posts.',
+              style: Theme.of(context).textTheme.headline,
+            );
+          } else {
+            return CircularProgressIndicator();
+          }
+        });
+  }
+}</pre>
+</noscript>
+</div>
+</div>
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/tribal-hijacking/" class="u-url">Tribal hijacking</a></h1>
                 <div class="metadata">
                     <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                         Leonard Kioi

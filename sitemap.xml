@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>http://lkioi.me/archive.html</loc>
-  <lastmod>2019-06-11T06:16:00Z</lastmod>
+  <lastmod>2019-07-11T07:51:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/</loc>
@@ -92,6 +92,10 @@
  <url>
   <loc>http://lkioi.me/posts/broken-child-now-man-full-of-hope/</loc>
   <lastmod>2019-05-28T08:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/posts/flutter-loading-screen-with-future-builder/</loc>
+  <lastmod>2019-07-11T07:51:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/get-your-prs-merged-faster/</loc>
