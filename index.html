@@ -11,7 +11,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="http://lkioi.me/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/flutter-loading-screen-with-future-builder/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/running-flutter-app-on-genymotion/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -70,7 +70,23 @@
     
         
     <div class="postindex">
-            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/flutter-loading-screen-with-future-builder/" class="u-url">Flutter loading screen with future builder</a></h1>
+            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/running-flutter-app-on-genymotion/" class="u-url">Running flutter app on Genymotion</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Leonard Kioi
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/running-flutter-app-on-genymotion/" rel="bookmark">
+            <time class="published dt-published" datetime="2019-07-15T11:41:24+03:00" itemprop="datePublished" title="2019-07-15 11:41">2019-07-15 11:41</time></a>
+            </p>
+                </div>
+            </header><div class="e-content entry-content">
+                    <div>
+<p>To run flutter apps for android development you have the option of running the app on android studio AVDs or genymotion. I prefer genymotion since I find more lightweight and I can run vagrant boxes usually for the backend of the application. This is not possible with AVDs. Flutter fails to recognize the devices created using genymotion. After searching around the internet I could not find a solution so I'm going to post what worked for me.</p>
+<p>Ensure you have installed the Android SDKs for the target platforms. You can do this from the SDK manager in Android Studio. Launch Genymotion. On the menu bar go to: <code>Genymotion &gt; Settings</code>. This will launch a dialog box. Select <code>ADB</code> in the dialog. Enter the path to your Android SDK folder. For example on my local setup this is <code>/home/lk/Android/Sdk</code>. Restart Genymotion and launch your devices. I had some problems with devices I had created before I made these changes. In this case I deleted and recreated them. When you run <code>flutter devices</code> your launched device should appear now. Run <code>flutter run</code> to launch the app. Happy fluttering.</p>
+</div>
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/flutter-loading-screen-with-future-builder/" class="u-url">Flutter loading screen with future builder</a></h1>
                 <div class="metadata">
                     <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                         Leonard Kioi

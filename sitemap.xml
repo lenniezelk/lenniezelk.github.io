@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>http://lkioi.me/archive.html</loc>
-  <lastmod>2019-07-11T07:51:00Z</lastmod>
+  <lastmod>2019-07-15T08:50:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/categories/</loc>
@@ -104,6 +104,10 @@
  <url>
   <loc>http://lkioi.me/posts/justice-shall-prevail/</loc>
   <lastmod>2019-05-28T08:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://lkioi.me/posts/running-flutter-app-on-genymotion/</loc>
+  <lastmod>2019-07-15T08:50:00Z</lastmod>
  </url>
  <url>
   <loc>http://lkioi.me/posts/setting-up-dart-for-local-development/</loc>
