@@ -1,8 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk (Posts about python)</title><link>http://lkioi.me/</link><description></description><atom:link href="http://lkioi.me/categories/python.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Sat, 11 Jan 2020 08:03:17 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Improving readability of Python code</title><link>http://lkioi.me/posts/type-hints-in-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Readability of code as defined in wikipedia:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,&lt;/span&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk (Posts about python)</title><link>http://lkioi.me/</link><description></description><atom:link href="http://lkioi.me/categories/python.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Mon, 23 Mar 2020 10:22:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Named Parameters in Dart, Swift and Python</title><link>http://lkioi.me/posts/named-parameters-in-dart-swift-and-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;In software development we optimize for readability since code is read more than its written. Named parameters are one way to improve code readability. Lets say we have a function that calculates the distance between two points. I takes two point &lt;code&gt;Point&lt;/code&gt; class instances representing the start and end positions. When calling the functions, using positional arguments its not very clear what is being referred to.&lt;/p&gt;
+&lt;p&gt;In Python:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/d80e6e2bbf9ab513654aa97e43f37fc6.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;def calculate_distance(start_position: Point, end_position: Point):
+    pass
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9))&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In Dart:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/9edb982793fda8440be6d22219f96129.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;calculateDistance(Point startPosition, Point endPosition) {
+}
+
+calculateDistance(Point(-12.3, 45.4), Point(56.2, 27.9))&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In Swift:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/100a5abd8670331750435a8b0ff719de.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;func calculate_distance(_ start_position: Point, _ end_position: Point) {
+}
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9))&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;On the other hand, using named parameters makes function calls more expressive, its clear to the reader what the arguments represent. This becomes helpful particularly as the number of arguments grow. Lets add one more argument. In the examples below when calling the functions its not very clear what the third argument is when its being read.&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/fa6f6cd79647c97c2997160a0998d028.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;def calculate_distance(start_position: Point, end_position: Point, srid: int):
+    pass
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/18d19b34c43454518b3195f704d0576f.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;calculateDistance(Point startPosition, Point endPosition, int srid) {
+}
+
+calculateDistance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/694317b02b1abb74cd322fadb8f795a0.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;
+func calculate_distance(_ start_position: Point, _ end_position: Point, _ srid: Int) {
+}
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Using named parameters is really helpful in such a situation. In the three languages its possible to specify that the parameters should be passed as named parameters. In Python, we can add a &lt;code&gt;*,&lt;/code&gt; before the parameters, in dart we can add curly braces around the parameters and in swift we can remove the underscore before the parameter names.&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/1ca8b8c2615e45b779d074c4a57bd7c7.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;
+def calculate_distance(*, start_position: Point, end_position: Point, srid: int):
+    pass
+
+calculate_distance(start_position=Point(-12.3, 45.4), end_position=Point(56.2, 27.9), srid=4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/dfe21e1755ca663ec82b2ea8bf017778.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;calculateDistance({Point startPosition, Point endPosition, int srid}) {
+}
+
+calculateDistance(startPosition=Point(-12.3, 45.4), endPosition=Point(56.2, 27.9), srid=4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/19c64a6b97bc7c6be70cf8d9f6e508d6.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;
+func calculate_distance(start_position: Point, end_position: Point, srid: Int) {
+}
+
+calculate_distance(start_position=Point(-12.3, 45.4), end_position=Point(56.2, 27.9), srid=4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><category>dart</category><category>python</category><category>swift</category><guid>http://lkioi.me/posts/named-parameters-in-dart-swift-and-python/</guid><pubDate>Mon, 23 Mar 2020 09:20:58 GMT</pubDate></item><item><title>Improving readability of Python code</title><link>http://lkioi.me/posts/type-hints-in-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Readability of code as defined in wikipedia:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,&lt;/span&gt;
 &lt;span class="err"&gt;control flow, and operation of source code&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Python is one of the most readable programming languages out there but we can still improve this more by following software
@@ -22,9 +129,9 @@ function body in order know the type of parameters passed in. If its a dictionar
 have to look through the code to know the type of keys and values of the &lt;code&gt;dict&lt;/code&gt;. I've had to add print statements to determine
 the type being passed in.&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;In the code above &lt;code&gt;project&lt;/code&gt; and  &lt;code&gt;date&lt;/code&gt; could be anything. Proper naming of the variables helps but still, &lt;code&gt;project&lt;/code&gt; could
@@ -38,20 +145,20 @@ it can usually be infered from the context.&lt;/p&gt;
 3
 4
 5
-6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;.projects&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;I'm a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
 takes their descriptiveness to a new level. You can specify the type for the field names.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NamedTuple&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NamedTuple&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Truck&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NamedTuple&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;num_wheels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
     &lt;span class="n"&gt;num_axles&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>programmming</category><category>python</category><guid>http://lkioi.me/posts/type-hints-in-python/</guid><pubDate>Sat, 24 Nov 2018 11:11:52 GMT</pubDate></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category>programmming</category><category>python</category><guid>http://lkioi.me/posts/type-hints-in-python/</guid><pubDate>Sat, 24 Nov 2018 11:11:52 GMT</pubDate></item></channel></rss>

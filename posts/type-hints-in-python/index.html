@@ -104,9 +104,9 @@ control flow, and operation of source code
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>Readability of code as defined in wikipedia:</p>
-<pre class="code literal-block"><span></span><span class="err">In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,</span>
+<pre class="code literal-block"><span></span><code><span class="err">In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,</span>
 <span class="err">control flow, and operation of source code</span>
-</pre>
+</code></pre>
 
 
 <p>Python is one of the most readable programming languages out there but we can still improve this more by following software
@@ -129,9 +129,9 @@ the type being passed in.</p>
 <td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+<pre class="code literal-block"><span></span><code><span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
     <span class="k">pass</span>
-</pre>
+</code></pre>
 </td>
 </tr></table>
 <p>In the code above <code>project</code> and  <code>date</code> could be anything. Proper naming of the variables helps but still, <code>project</code> could
@@ -148,23 +148,23 @@ it can usually be infered from the context.</p>
 5
 6</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
 <span class="kn">from</span> <span class="nn">.projects</span> <span class="kn">import</span> <span class="n">Project</span>
 
 <span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="n">date</span><span class="p">):</span>
     <span class="k">pass</span>
-</pre>
+</code></pre>
 </td>
 </tr></table>
 <p>I'm a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
 takes their descriptiveness to a new level. You can specify the type for the field names.</p>
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
 
 <span class="k">class</span> <span class="nc">Truck</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
     <span class="n">num_wheels</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">num_axles</span><span class="p">:</span> <span class="nb">int</span>
-</pre>
+</code></pre>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

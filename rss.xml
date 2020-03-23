@@ -1,5 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk</title><link>http://lkioi.me/</link><description>Rants and musings of Leonard Kioi a sofware developer and cycling enthusiast from Nairobi, Kenya</description><atom:link href="http://lkioi.me/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Sat, 11 Jan 2020 08:03:17 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Running flutter app on Genymotion</title><link>http://lkioi.me/posts/running-flutter-app-on-genymotion/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;To run flutter apps for android development you have the option of running the app on android studio AVDs or genymotion. I prefer genymotion since I find more lightweight and I can run vagrant boxes usually for the backend of the application. This is not possible with AVDs. Flutter fails to recognize the devices created using genymotion. After searching around the internet I could not find a solution so I'm going to post what worked for me.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lk</title><link>http://lkioi.me/</link><description>Rants and musings of Leonard Kioi a sofware developer and cycling enthusiast from Nairobi, Kenya</description><atom:link href="http://lkioi.me/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:lenny.kinyanjui.lk@gmail.com"&gt;Leonard Kioi&lt;/a&gt; </copyright><lastBuildDate>Mon, 23 Mar 2020 10:22:20 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Named Parameters in Dart, Swift and Python</title><link>http://lkioi.me/posts/named-parameters-in-dart-swift-and-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;In software development we optimize for readability since code is read more than its written. Named parameters are one way to improve code readability. Lets say we have a function that calculates the distance between two points. I takes two point &lt;code&gt;Point&lt;/code&gt; class instances representing the start and end positions. When calling the functions, using positional arguments its not very clear what is being referred to.&lt;/p&gt;
+&lt;p&gt;In Python:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/d80e6e2bbf9ab513654aa97e43f37fc6.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;def calculate_distance(start_position: Point, end_position: Point):
+    pass
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9))&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In Dart:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/9edb982793fda8440be6d22219f96129.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;calculateDistance(Point startPosition, Point endPosition) {
+}
+
+calculateDistance(Point(-12.3, 45.4), Point(56.2, 27.9))&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In Swift:&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/100a5abd8670331750435a8b0ff719de.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;func calculate_distance(_ start_position: Point, _ end_position: Point) {
+}
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9))&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;On the other hand, using named parameters makes function calls more expressive, its clear to the reader what the arguments represent. This becomes helpful particularly as the number of arguments grow. Lets add one more argument. In the examples below when calling the functions its not very clear what the third argument is when its being read.&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/fa6f6cd79647c97c2997160a0998d028.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;def calculate_distance(start_position: Point, end_position: Point, srid: int):
+    pass
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/18d19b34c43454518b3195f704d0576f.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;calculateDistance(Point startPosition, Point endPosition, int srid) {
+}
+
+calculateDistance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/694317b02b1abb74cd322fadb8f795a0.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;
+func calculate_distance(_ start_position: Point, _ end_position: Point, _ srid: Int) {
+}
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Using named parameters is really helpful in such a situation. In the three languages its possible to specify that the parameters should be passed as named parameters. In Python, we can add a &lt;code&gt;*,&lt;/code&gt; before the parameters, in dart we can add curly braces around the parameters and in swift we can remove the underscore before the parameter names.&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/1ca8b8c2615e45b779d074c4a57bd7c7.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;
+def calculate_distance(*, start_position: Point, end_position: Point, srid: int):
+    pass
+
+calculate_distance(start_position=Point(-12.3, 45.4), end_position=Point(56.2, 27.9), srid=4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/dfe21e1755ca663ec82b2ea8bf017778.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;calculateDistance({Point startPosition, Point endPosition, int srid}) {
+}
+
+calculateDistance(startPosition=Point(-12.3, 45.4), endPosition=Point(56.2, 27.9), srid=4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;&lt;div class="gist"&gt;
+&lt;script src="https://gist.github.com/19c64a6b97bc7c6be70cf8d9f6e508d6.js"&gt;&lt;/script&gt;
+&lt;noscript&gt;
+&lt;pre&gt;
+func calculate_distance(start_position: Point, end_position: Point, srid: Int) {
+}
+
+calculate_distance(start_position=Point(-12.3, 45.4), end_position=Point(56.2, 27.9), srid=4312)&lt;/pre&gt;
+&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><category>dart</category><category>python</category><category>swift</category><guid>http://lkioi.me/posts/named-parameters-in-dart-swift-and-python/</guid><pubDate>Mon, 23 Mar 2020 09:20:58 GMT</pubDate></item><item><title>Running flutter app on Genymotion</title><link>http://lkioi.me/posts/running-flutter-app-on-genymotion/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;To run flutter apps for android development you have the option of running the app on android studio AVDs or genymotion. I prefer genymotion since I find more lightweight and I can run vagrant boxes usually for the backend of the application. This is not possible with AVDs. Flutter fails to recognize the devices created using genymotion. After searching around the internet I could not find a solution so I'm going to post what worked for me.&lt;/p&gt;
 &lt;p&gt;Ensure you have installed the Android SDKs for the target platforms. You can do this from the SDK manager in Android Studio. Launch Genymotion. On the menu bar go to: &lt;code&gt;Genymotion &amp;gt; Settings&lt;/code&gt;. This will launch a dialog box. Select &lt;code&gt;ADB&lt;/code&gt; in the dialog. Enter the path to your Android SDK folder. For example on my local setup this is &lt;code&gt;/home/lk/Android/Sdk&lt;/code&gt;. Restart Genymotion and launch your devices. I had some problems with devices I had created before I made these changes. In this case I deleted and recreated them. When you run &lt;code&gt;flutter devices&lt;/code&gt; your launched device should appear now. Run &lt;code&gt;flutter run&lt;/code&gt; to launch the app. Happy fluttering.&lt;/p&gt;&lt;/div&gt;</description><category>flutter</category><category>programming</category><guid>http://lkioi.me/posts/running-flutter-app-on-genymotion/</guid><pubDate>Mon, 15 Jul 2019 08:41:24 GMT</pubDate></item><item><title>Flutter loading screen with future builder</title><link>http://lkioi.me/posts/flutter-loading-screen-with-future-builder/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;When developing UIs you need to give the user some feedback on a long running process. A loading widget is normally the go to solution. In React you would have a boolean property in the components state. If for example you are fetching some data from the internet, you would set the boolean to &lt;code&gt;true&lt;/code&gt;. In the component's &lt;code&gt;render&lt;/code&gt; method you would display a loading widget based on the value of that boolean property. When you have your data you show the right component. Something like:&lt;/p&gt;
 &lt;p&gt;
 &lt;/p&gt;&lt;div class="gist"&gt;
@@ -87,36 +194,36 @@ class MyHomePage extends StatelessWidget {
 &lt;p&gt;We need to move away from tribal based politics. We need to move towards ideology based politics. I think about the political parties in the USA. When I hear democrats I immediately thinks about the ideas they support and are against not which tribal group they represent. The same thing about Labour party UK. The two major political parties in Kenya, Jubilee and Nasa are largely tribal outfits. The future still looks bleak sadly. The upcoming election seems like will be the largely the same. I pray for change in our thinking as a people. I think the current political elite need to step aside to allow for change just like Ethiopia has done.&lt;/p&gt;
 &lt;p&gt;Our current system favors the political elite, so don't expect them to change. It wont happen. I pray there wont be need to spill blood to get change. The people need to rise up and cast aside the shackles of ignorance and embrace the possible future before them.&lt;/p&gt;&lt;/div&gt;</description><category>diversity</category><category>kenya</category><category>tribe</category><guid>http://lkioi.me/posts/tribal-hijacking/</guid><pubDate>Tue, 11 Jun 2019 05:45:32 GMT</pubDate></item><item><title>Setting up Dart for local development</title><link>http://lkioi.me/posts/setting-up-dart-for-local-development/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;I've been learning Flutter for mobile development lately. I like the journey so far and I'm going to be posting stuff I learn along the way. First i'll show how to setup Dart for local development. I use &lt;code&gt;asdf&lt;/code&gt; for managing different versions of language runtimes on my local machine. I found out about it when trying to setup different Python versions. My dev machine comes with Python 3.7 but at work we use Python 3.6 and I like having the exact version in use. What to do? &lt;code&gt;asdf&lt;/code&gt; to the rescue. &lt;code&gt;asdf&lt;/code&gt; has a plugin system that allows allows the installation of different langauge runtimes for example you can install Python 3.5, 3.6 and 3.8 on the same machine and switch between them. A lot of langauges are supported you can find these &lt;a href="https://asdf-vm.com/#/plugins-all"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To setup &lt;code&gt;asdf&lt;/code&gt; run:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;/pre&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Replace &lt;code&gt;0.7.2&lt;/code&gt; with the latest version which you can find &lt;a href="https://github.com/asdf-vm/asdf/releases"&gt;here&lt;/a&gt;. Next add &lt;code&gt;asdf&lt;/code&gt; to your shell like so:&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s1"&gt;'\n. $HOME/.asdf/asdf.sh'&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s1"&gt;'\n. $HOME/.asdf/asdf.sh'&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
 &lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s1"&gt;'\n. $HOME/.asdf/completions/asdf.bash'&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Remember to replace &lt;code&gt;.zshrc&lt;/code&gt; with your shell specific config file e.g .bashrc. Reload your config file &lt;code&gt;source .zshrc&lt;/code&gt;. You are good to go.&lt;/p&gt;
 &lt;p&gt;Now lets setup dart. We begin by installing the dart plugin:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf plugin-add dart
-&lt;/pre&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;asdf plugin-add dart
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Now we can install dart sdk and tools by running:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf install dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
-&lt;/pre&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;asdf install dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Replace 3.2.1 with the latest version or the version you want. You can find these &lt;a href="https://github.com/dart-lang/sdk/releases"&gt;here&lt;/a&gt;. You need to choose a global version. This is the version that will be run when you type &lt;code&gt;dart&lt;/code&gt; in any shell. You can do this by:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf global dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
-&lt;/pre&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;asdf global dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;You can also set a version to be used only in the current shell:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;asdf &lt;span class="nb"&gt;local&lt;/span&gt; dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
-&lt;/pre&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;asdf &lt;span class="nb"&gt;local&lt;/span&gt; dart &lt;span class="m"&gt;2&lt;/span&gt;.3.1
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Happy darting.&lt;/p&gt;&lt;/div&gt;</description><category>dart</category><category>flutter</category><category>programming</category><guid>http://lkioi.me/posts/setting-up-dart-for-local-development/</guid><pubDate>Tue, 28 May 2019 08:23:34 GMT</pubDate></item><item><title>Get your PRs merged faster</title><link>http://lkioi.me/posts/get-your-prs-merged-faster/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Every developer wants their code in production as soon as possible. I am assuming you are in a team or at least have someone else to review your code before its merged into staging or production environments. In the past two years I have seen an improvement in the time it takes to get my code merged.&lt;/p&gt;
@@ -131,43 +238,43 @@ Agree as a team to be setting aside time to review each other's PRs. Maybe at th
 &lt;p&gt;Now I have a daughter of my own and I am deeply worried for her. What if her mom and I don't last and she has to go through the same. Selfishness and pride caused the break up of my parent's home and now I see elements of the same in my wife and I. This deeply troubles me. See selfishess and pride can be very subtle, they show in our attitudes, tone of voice. Being a christian, I believe the that after the fall in the garden of Eden, we became hopelessly selfish and proud. Both partners need to be in agreement to battle these two foes deliberately. As man, I have had to take one for the team many times. In a fight, I know I'm right and even have the facts to prove it but I love peace more in my home so I yield. I know many men have had to do this for the sake of their families.&lt;/p&gt;
 &lt;p&gt;I have found hope in the word of God. Sin is deceptive, it hardens and blinds us to our own faults. As a christian, I find hope in God's word, in:&lt;/p&gt;
 &lt;p&gt;Heb 13:21 says:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;...equip you with everything good for doing his will, and may he work in us what is pleasing to him, through Jesus Christ to whom be glory for ever and ever.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><guid>http://lkioi.me/posts/broken-child-now-man-full-of-hope/</guid><pubDate>Tue, 22 Jan 2019 08:42:24 GMT</pubDate></item><item><title>Justice shall prevail</title><link>http://lkioi.me/posts/justice-shall-prevail/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;I feel sad when I think about the corruption in my country. Kenya has so much potential but the looting of public resources has led to so much underdevelopment and suffering. I have been reading the book of Habakkuk for the past few days and i really related to the old testament prophet. In his time, his people were suffering under a foreign power. In my time, my people suffer under corrupt leaders.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;...equip you with everything good for doing his will, and may he work in us what is pleasing to him, through Jesus Christ to whom be glory for ever and ever.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><guid>http://lkioi.me/posts/broken-child-now-man-full-of-hope/</guid><pubDate>Tue, 22 Jan 2019 08:42:24 GMT</pubDate></item><item><title>Justice shall prevail</title><link>http://lkioi.me/posts/justice-shall-prevail/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;I feel sad when I think about the corruption in my country. Kenya has so much potential but the looting of public resources has led to so much underdevelopment and suffering. I have been reading the book of Habakkuk for the past few days and i really related to the old testament prophet. In his time, his people were suffering under a foreign power. In my time, my people suffer under corrupt leaders.&lt;/p&gt;
 &lt;p&gt;In &lt;code&gt;Habakkuk 1:2&lt;/code&gt;, he cries to God:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;How long, Lord, must I cry for help? But you do not listen!I call out to you, Violence! But you do not deliver! &lt;/span&gt;
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;How long, Lord, must I cry for help? But you do not listen!I call out to you, Violence! But you do not deliver! &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;I feel the same way, our country has suffered under corrupt leaders, one after the other, scandal after scandal. My heart cries out to God, how long must we suffer under these wicked people who don't care who gets hurt by their actions. They steal from medical funds and money meant for primary school children, they kill directly and indirectly. During the general elections they incite the people to violence.&lt;/p&gt;
 &lt;p&gt;In &lt;code&gt;Habakkuk 1:4&lt;/code&gt;, he says:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;Therefore the law is paralyzed,&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Therefore the law is paralyzed,&lt;/span&gt;
 &lt;span class="err"&gt;    and justice never prevails.&lt;/span&gt;
 &lt;span class="err"&gt;The wicked hem in the righteous,&lt;/span&gt;
 &lt;span class="err"&gt;    so that justice is perverted.&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;In my country, politicians loot public resources, they are charged in court, post bail and leave. The trial begins but no one is ever convicted. They continue to make public appearances and even run for public office again. There is a lack of political will to bring change. Our institutions tasked with fighting corruption seem powerless to do anything. I remember the other day reading an article in one of the local newspapers that the EACC has only recovered 500,000 KES of looted money, yet billions have been stolen. Cases remain in court for years. I remember my mom and her siblings have a case in court for over eighteen years and its still not done. People can steal and not worry about the consequences, they are able to bribe judges to get favorable sentences. They can bribe court officers so the documents disappear. Justice truly is perverted here. Politics has become so lucrative, people are willing to do anything to anyone so as to get elected or appointed to public office. I had some business dealings with someone and during a casual conversation, I brought up that I was once caught with a traffic offence and was fined in court. He told me if we knew each other then he would have been able to help me, I would have given him &lt;code&gt;ya macho&lt;/code&gt; and walked scott free. He works at the court offices.&lt;/p&gt;
 &lt;p&gt;I like the current DPP, Noordin Haji and the DCI, George Kinoti, they are are ordering arrests and prosecution of high profile individuals. I hope the courts wont let them down. I always remember Haji in my prayers. I need to remember to pray for Kinoti too.&lt;/p&gt;
 &lt;p&gt;In &lt;code&gt;Habakkuk 2:3&lt;/code&gt;, God says:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;For&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;revelation&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;awaits&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;an&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;appointed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;time&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;For&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;revelation&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;awaits&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;an&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;appointed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;time&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;speaks&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;will&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;prove&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="n"&gt;Though&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;linger&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wait&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;will&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;certainly&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;come&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;will&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Reading from &lt;code&gt;2:2&lt;/code&gt; to the end of the chapter, God is passing judgement on the wicked and in &lt;code&gt;2:3&lt;/code&gt; God says it will come to pass. We have the advantage of hindsight, we know the Assyrians were overthrown by the Babylonians so God's word came to pass. In &lt;code&gt;2:9&lt;/code&gt; God specifically speaks to those who build their house by unjust gain. This is our corrupt politicians, corrupt judges, corrupt police officers and anyone else who is corrupt. I believe one day God will bring justice to our country, things will change for our people. Ultimately, all sin will be punished on judgement day so no one will escape.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Habakkuk 3:16&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;...&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;...&lt;/span&gt;
 &lt;span class="err"&gt;Yet I will wait patiently for the day of calamity&lt;/span&gt;
 &lt;span class="err"&gt;    to come on the nation invading us.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>christianity</category><category>faith</category><category>justice</category><category>kenya</category><guid>http://lkioi.me/posts/justice-shall-prevail/</guid><pubDate>Mon, 31 Dec 2018 09:21:45 GMT</pubDate></item><item><title>Improving readability of Python code</title><link>http://lkioi.me/posts/type-hints-in-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Readability of code as defined in wikipedia:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category>christianity</category><category>faith</category><category>justice</category><category>kenya</category><guid>http://lkioi.me/posts/justice-shall-prevail/</guid><pubDate>Mon, 31 Dec 2018 09:21:45 GMT</pubDate></item><item><title>Improving readability of Python code</title><link>http://lkioi.me/posts/type-hints-in-python/</link><dc:creator>Leonard Kioi</dc:creator><description>&lt;div&gt;&lt;p&gt;Readability of code as defined in wikipedia:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,&lt;/span&gt;
 &lt;span class="err"&gt;control flow, and operation of source code&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Python is one of the most readable programming languages out there but we can still improve this more by following software
@@ -187,9 +294,9 @@ function body in order know the type of parameters passed in. If its a dictionar
 have to look through the code to know the type of keys and values of the &lt;code&gt;dict&lt;/code&gt;. I've had to add print statements to determine
 the type being passed in.&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;In the code above &lt;code&gt;project&lt;/code&gt; and  &lt;code&gt;date&lt;/code&gt; could be anything. Proper naming of the variables helps but still, &lt;code&gt;project&lt;/code&gt; could
@@ -203,20 +310,20 @@ it can usually be infered from the context.&lt;/p&gt;
 3
 4
 5
-6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;.projects&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;I'm a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
 takes their descriptiveness to a new level. You can specify the type for the field names.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NamedTuple&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NamedTuple&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Truck&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NamedTuple&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;num_wheels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
     &lt;span class="n"&gt;num_axles&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>programmming</category><category>python</category><guid>http://lkioi.me/posts/type-hints-in-python/</guid><pubDate>Sat, 24 Nov 2018 11:11:52 GMT</pubDate></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category>programmming</category><category>python</category><guid>http://lkioi.me/posts/type-hints-in-python/</guid><pubDate>Sat, 24 Nov 2018 11:11:52 GMT</pubDate></item></channel></rss>

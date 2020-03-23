@@ -105,8 +105,8 @@
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2<span class="sb">`</span>
-</pre>
+<pre class="code literal-block"><span></span><code>git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2<span class="sb">`</span>
+</code></pre>
 </td>
 </tr></table>
 <p>Replace <code>0.7.2</code> with the latest version which you can find <a href="https://github.com/asdf-vm/asdf/releases">here</a>. Next add <code>asdf</code> to your shell like so:</p>
@@ -114,9 +114,9 @@
 <td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span><span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/asdf.sh'</span> &gt;&gt; ~/.zshrc
+<pre class="code literal-block"><span></span><code><span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/asdf.sh'</span> &gt;&gt; ~/.zshrc
 <span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/completions/asdf.bash'</span> &gt;&gt; ~/.zshrc
-</pre>
+</code></pre>
 </td>
 </tr></table>
 <p>Remember to replace <code>.zshrc</code> with your shell specific config file e.g .bashrc. Reload your config file <code>source .zshrc</code>. You are good to go.</p>
@@ -124,32 +124,32 @@
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf plugin-add dart
-</pre>
+<pre class="code literal-block"><span></span><code>asdf plugin-add dart
+</code></pre>
 </td>
 </tr></table>
 <p>Now we can install dart sdk and tools by running:</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf install dart <span class="m">2</span>.3.1
-</pre>
+<pre class="code literal-block"><span></span><code>asdf install dart <span class="m">2</span>.3.1
+</code></pre>
 </td>
 </tr></table>
 <p>Replace 3.2.1 with the latest version or the version you want. You can find these <a href="https://github.com/dart-lang/sdk/releases">here</a>. You need to choose a global version. This is the version that will be run when you type <code>dart</code> in any shell. You can do this by:</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf global dart <span class="m">2</span>.3.1
-</pre>
+<pre class="code literal-block"><span></span><code>asdf global dart <span class="m">2</span>.3.1
+</code></pre>
 </td>
 </tr></table>
 <p>You can also set a version to be used only in the current shell:</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf <span class="nb">local</span> dart <span class="m">2</span>.3.1
-</pre>
+<pre class="code literal-block"><span></span><code>asdf <span class="nb">local</span> dart <span class="m">2</span>.3.1
+</code></pre>
 </td>
 </tr></table>
 <p>Happy darting.</p>

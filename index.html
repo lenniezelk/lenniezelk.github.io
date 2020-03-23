@@ -11,7 +11,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="http://lkioi.me/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/running-flutter-app-on-genymotion/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/named-parameters-in-dart-swift-and-python/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -71,7 +71,128 @@
     
         
     <div class="postindex">
-            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/running-flutter-app-on-genymotion/" class="u-url">Running flutter app on Genymotion</a></h1>
+            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/named-parameters-in-dart-swift-and-python/" class="u-url">Named Parameters in Dart, Swift and Python</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Leonard Kioi
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/named-parameters-in-dart-swift-and-python/" rel="bookmark">
+            <time class="published dt-published" datetime="2020-03-23T12:20:58+03:00" itemprop="datePublished" title="2020-03-23 12:20">2020-03-23 12:20</time></a>
+            </p>
+                </div>
+            </header><div class="e-content entry-content">
+                    <div>
+<p>In software development we optimize for readability since code is read more than its written. Named parameters are one way to improve code readability. Lets say we have a function that calculates the distance between two points. I takes two point <code>Point</code> class instances representing the start and end positions. When calling the functions, using positional arguments its not very clear what is being referred to.</p>
+<p>In Python:</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/d80e6e2bbf9ab513654aa97e43f37fc6.js"></script><noscript>
+<pre>def calculate_distance(start_position: Point, end_position: Point):
+    pass
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9))</pre>
+</noscript>
+</div>
+
+<p>In Dart:</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/9edb982793fda8440be6d22219f96129.js"></script><noscript>
+<pre>calculateDistance(Point startPosition, Point endPosition) {
+}
+
+calculateDistance(Point(-12.3, 45.4), Point(56.2, 27.9))</pre>
+</noscript>
+</div>
+
+<p>In Swift:</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/100a5abd8670331750435a8b0ff719de.js"></script><noscript>
+<pre>func calculate_distance(_ start_position: Point, _ end_position: Point) {
+}
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9))</pre>
+</noscript>
+</div>
+
+<p>On the other hand, using named parameters makes function calls more expressive, its clear to the reader what the arguments represent. This becomes helpful particularly as the number of arguments grow. Lets add one more argument. In the examples below when calling the functions its not very clear what the third argument is when its being read.</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/fa6f6cd79647c97c2997160a0998d028.js"></script><noscript>
+<pre>def calculate_distance(start_position: Point, end_position: Point, srid: int):
+    pass
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)</pre>
+</noscript>
+</div>
+
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/18d19b34c43454518b3195f704d0576f.js"></script><noscript>
+<pre>calculateDistance(Point startPosition, Point endPosition, int srid) {
+}
+
+calculateDistance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)</pre>
+</noscript>
+</div>
+
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/694317b02b1abb74cd322fadb8f795a0.js"></script><noscript>
+<pre>
+func calculate_distance(_ start_position: Point, _ end_position: Point, _ srid: Int) {
+}
+
+calculate_distance(Point(-12.3, 45.4), Point(56.2, 27.9), 4312)</pre>
+</noscript>
+</div>
+
+<p>Using named parameters is really helpful in such a situation. In the three languages its possible to specify that the parameters should be passed as named parameters. In Python, we can add a <code>*,</code> before the parameters, in dart we can add curly braces around the parameters and in swift we can remove the underscore before the parameter names.</p>
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/1ca8b8c2615e45b779d074c4a57bd7c7.js"></script><noscript>
+<pre>
+def calculate_distance(*, start_position: Point, end_position: Point, srid: int):
+    pass
+
+calculate_distance(start_position=Point(-12.3, 45.4), end_position=Point(56.2, 27.9), srid=4312)</pre>
+</noscript>
+</div>
+
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/dfe21e1755ca663ec82b2ea8bf017778.js"></script><noscript>
+<pre>calculateDistance({Point startPosition, Point endPosition, int srid}) {
+}
+
+calculateDistance(startPosition=Point(-12.3, 45.4), endPosition=Point(56.2, 27.9), srid=4312)</pre>
+</noscript>
+</div>
+
+<p>
+</p>
+<div class="gist">
+<script src="https://gist.github.com/19c64a6b97bc7c6be70cf8d9f6e508d6.js"></script><noscript>
+<pre>
+func calculate_distance(start_position: Point, end_position: Point, srid: Int) {
+}
+
+calculate_distance(start_position=Point(-12.3, 45.4), end_position=Point(56.2, 27.9), srid=4312)</pre>
+</noscript>
+</div>
+</div>
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/running-flutter-app-on-genymotion/" class="u-url">Running flutter app on Genymotion</a></h1>
                 <div class="metadata">
                     <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                         Leonard Kioi
@@ -218,8 +339,8 @@ class MyHomePage extends StatelessWidget {
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2<span class="sb">`</span>
-</pre>
+<pre class="code literal-block"><span></span><code>git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2<span class="sb">`</span>
+</code></pre>
 </td>
 </tr></table>
 <p>Replace <code>0.7.2</code> with the latest version which you can find <a href="https://github.com/asdf-vm/asdf/releases">here</a>. Next add <code>asdf</code> to your shell like so:</p>
@@ -227,9 +348,9 @@ class MyHomePage extends StatelessWidget {
 <td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span><span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/asdf.sh'</span> &gt;&gt; ~/.zshrc
+<pre class="code literal-block"><span></span><code><span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/asdf.sh'</span> &gt;&gt; ~/.zshrc
 <span class="nb">echo</span> -e <span class="s1">'\n. $HOME/.asdf/completions/asdf.bash'</span> &gt;&gt; ~/.zshrc
-</pre>
+</code></pre>
 </td>
 </tr></table>
 <p>Remember to replace <code>.zshrc</code> with your shell specific config file e.g .bashrc. Reload your config file <code>source .zshrc</code>. You are good to go.</p>
@@ -237,32 +358,32 @@ class MyHomePage extends StatelessWidget {
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf plugin-add dart
-</pre>
+<pre class="code literal-block"><span></span><code>asdf plugin-add dart
+</code></pre>
 </td>
 </tr></table>
 <p>Now we can install dart sdk and tools by running:</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf install dart <span class="m">2</span>.3.1
-</pre>
+<pre class="code literal-block"><span></span><code>asdf install dart <span class="m">2</span>.3.1
+</code></pre>
 </td>
 </tr></table>
 <p>Replace 3.2.1 with the latest version or the version you want. You can find these <a href="https://github.com/dart-lang/sdk/releases">here</a>. You need to choose a global version. This is the version that will be run when you type <code>dart</code> in any shell. You can do this by:</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf global dart <span class="m">2</span>.3.1
-</pre>
+<pre class="code literal-block"><span></span><code>asdf global dart <span class="m">2</span>.3.1
+</code></pre>
 </td>
 </tr></table>
 <p>You can also set a version to be used only in the current shell:</p>
 <table class="codehilitetable"><tr>
 <td class="linenos"><div class="linenodiv"><pre>1</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span>asdf <span class="nb">local</span> dart <span class="m">2</span>.3.1
-</pre>
+<pre class="code literal-block"><span></span><code>asdf <span class="nb">local</span> dart <span class="m">2</span>.3.1
+</code></pre>
 </td>
 </tr></table>
 <p>Happy darting.</p>
@@ -307,8 +428,8 @@ Agree as a team to be setting aside time to review each other's PRs. Maybe at th
 <p>Now I have a daughter of my own and I am deeply worried for her. What if her mom and I don't last and she has to go through the same. Selfishness and pride caused the break up of my parent's home and now I see elements of the same in my wife and I. This deeply troubles me. See selfishess and pride can be very subtle, they show in our attitudes, tone of voice. Being a christian, I believe the that after the fall in the garden of Eden, we became hopelessly selfish and proud. Both partners need to be in agreement to battle these two foes deliberately. As man, I have had to take one for the team many times. In a fight, I know I'm right and even have the facts to prove it but I love peace more in my home so I yield. I know many men have had to do this for the sake of their families.</p>
 <p>I have found hope in the word of God. Sin is deceptive, it hardens and blinds us to our own faults. As a christian, I find hope in God's word, in:</p>
 <p>Heb 13:21 says:</p>
-<pre class="code literal-block"><span></span><span class="err">...equip you with everything good for doing his will, and may he work in us what is pleasing to him, through Jesus Christ to whom be glory for ever and ever.</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">...equip you with everything good for doing his will, and may he work in us what is pleasing to him, through Jesus Christ to whom be glory for ever and ever.</span>
+</code></pre>
 </div>
                 </div>
             </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/justice-shall-prevail/" class="u-url">Justice shall prevail</a></h1>
@@ -318,44 +439,44 @@ Agree as a team to be setting aside time to review each other's PRs. Maybe at th
                     </span></p>
             <p class="dateline">
             <a href="posts/justice-shall-prevail/" rel="bookmark">
-            <time class="published dt-published" datetime="2018-12-31T12:21:45+03:00" itemprop="datePublished" title="2019-12-31 12:21">2019-12-31 12:21</time></a>
+            <time class="published dt-published" datetime="2018-12-31T12:21:45+03:00" itemprop="datePublished" title="2018-12-31 12:21">2018-12-31 12:21</time></a>
             </p>
                 </div>
             </header><div class="e-content entry-content">
                     <div>
 <p>I feel sad when I think about the corruption in my country. Kenya has so much potential but the looting of public resources has led to so much underdevelopment and suffering. I have been reading the book of Habakkuk for the past few days and i really related to the old testament prophet. In his time, his people were suffering under a foreign power. In my time, my people suffer under corrupt leaders.</p>
 <p>In <code>Habakkuk 1:2</code>, he cries to God:</p>
-<pre class="code literal-block"><span></span><span class="err">How long, Lord, must I cry for help? But you do not listen!I call out to you, Violence! But you do not deliver! </span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">How long, Lord, must I cry for help? But you do not listen!I call out to you, Violence! But you do not deliver! </span>
+</code></pre>
 
 
 <p>I feel the same way, our country has suffered under corrupt leaders, one after the other, scandal after scandal. My heart cries out to God, how long must we suffer under these wicked people who don't care who gets hurt by their actions. They steal from medical funds and money meant for primary school children, they kill directly and indirectly. During the general elections they incite the people to violence.</p>
 <p>In <code>Habakkuk 1:4</code>, he says:</p>
-<pre class="code literal-block"><span></span><span class="err">Therefore the law is paralyzed,</span>
+<pre class="code literal-block"><span></span><code><span class="err">Therefore the law is paralyzed,</span>
 <span class="err">    and justice never prevails.</span>
 <span class="err">The wicked hem in the righteous,</span>
 <span class="err">    so that justice is perverted.</span>
-</pre>
+</code></pre>
 
 
 <p>In my country, politicians loot public resources, they are charged in court, post bail and leave. The trial begins but no one is ever convicted. They continue to make public appearances and even run for public office again. There is a lack of political will to bring change. Our institutions tasked with fighting corruption seem powerless to do anything. I remember the other day reading an article in one of the local newspapers that the EACC has only recovered 500,000 KES of looted money, yet billions have been stolen. Cases remain in court for years. I remember my mom and her siblings have a case in court for over eighteen years and its still not done. People can steal and not worry about the consequences, they are able to bribe judges to get favorable sentences. They can bribe court officers so the documents disappear. Justice truly is perverted here. Politics has become so lucrative, people are willing to do anything to anyone so as to get elected or appointed to public office. I had some business dealings with someone and during a casual conversation, I brought up that I was once caught with a traffic offence and was fined in court. He told me if we knew each other then he would have been able to help me, I would have given him <code>ya macho</code> and walked scott free. He works at the court offices.</p>
 <p>I like the current DPP, Noordin Haji and the DCI, George Kinoti, they are are ordering arrests and prosecution of high profile individuals. I hope the courts wont let them down. I always remember Haji in my prayers. I need to remember to pray for Kinoti too.</p>
 <p>In <code>Habakkuk 2:3</code>, God says:</p>
-<pre class="code literal-block"><span></span><span class="k">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">revelation</span><span class="w"> </span><span class="n">awaits</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">appointed</span><span class="w"> </span><span class="nc">time</span><span class="p">;</span><span class="w"></span>
+<pre class="code literal-block"><span></span><code><span class="k">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">revelation</span><span class="w"> </span><span class="n">awaits</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">appointed</span><span class="w"> </span><span class="nc">time</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="n">speaks</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="ow">and</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">prove</span><span class="w"> </span><span class="k">false</span><span class="p">.</span><span class="w"></span>
 <span class="n">Though</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">linger</span><span class="p">,</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">it</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">it</span><span class="o">[</span><span class="n">a</span><span class="o">]</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">certainly</span><span class="w"> </span><span class="n">come</span><span class="w"></span>
 <span class="w">    </span><span class="ow">and</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">delay</span><span class="p">.</span><span class="w"></span>
-</pre>
+</code></pre>
 
 
 <p>Reading from <code>2:2</code> to the end of the chapter, God is passing judgement on the wicked and in <code>2:3</code> God says it will come to pass. We have the advantage of hindsight, we know the Assyrians were overthrown by the Babylonians so God's word came to pass. In <code>2:9</code> God specifically speaks to those who build their house by unjust gain. This is our corrupt politicians, corrupt judges, corrupt police officers and anyone else who is corrupt. I believe one day God will bring justice to our country, things will change for our people. Ultimately, all sin will be punished on judgement day so no one will escape.</p>
 <p><code>Habakkuk 3:16</code>:</p>
-<pre class="code literal-block"><span></span><span class="err">...</span>
+<pre class="code literal-block"><span></span><code><span class="err">...</span>
 <span class="err">Yet I will wait patiently for the day of calamity</span>
 <span class="err">    to come on the nation invading us.</span>
-</pre>
+</code></pre>
 </div>
                 </div>
             </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/type-hints-in-python/" class="u-url">Improving readability of Python code</a></h1>
@@ -371,9 +492,9 @@ Agree as a team to be setting aside time to review each other's PRs. Maybe at th
             </header><div class="e-content entry-content">
                     <div>
 <p>Readability of code as defined in wikipedia:</p>
-<pre class="code literal-block"><span></span><span class="err">In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,</span>
+<pre class="code literal-block"><span></span><code><span class="err">In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,</span>
 <span class="err">control flow, and operation of source code</span>
-</pre>
+</code></pre>
 
 
 <p>Python is one of the most readable programming languages out there but we can still improve this more by following software
@@ -396,9 +517,9 @@ the type being passed in.</p>
 <td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+<pre class="code literal-block"><span></span><code><span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
     <span class="k">pass</span>
-</pre>
+</code></pre>
 </td>
 </tr></table>
 <p>In the code above <code>project</code> and  <code>date</code> could be anything. Proper naming of the variables helps but still, <code>project</code> could
@@ -415,23 +536,23 @@ it can usually be infered from the context.</p>
 5
 6</pre></div></td>
 <td class="code">
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
 <span class="kn">from</span> <span class="nn">.projects</span> <span class="kn">import</span> <span class="n">Project</span>
 
 <span class="k">def</span> <span class="nf">check_status</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="n">Project</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="n">date</span><span class="p">):</span>
     <span class="k">pass</span>
-</pre>
+</code></pre>
 </td>
 </tr></table>
 <p>I'm a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
 takes their descriptiveness to a new level. You can specify the type for the field names.</p>
-<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
 
 <span class="k">class</span> <span class="nc">Truck</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
     <span class="n">num_wheels</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">num_axles</span><span class="p">:</span> <span class="nb">int</span>
-</pre>
+</code></pre>
 </div>
                 </div>
             </article>

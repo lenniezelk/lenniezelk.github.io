@@ -7,62 +7,70 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://lkioi.me/categories/cat_faith.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://lkioi.me/categories/cat_programming.xml</loc>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/cat_python.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/christianity.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/dart.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/diversity.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/faith.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/flutter.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/justice.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/kenya.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/programming.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/programmming.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/python.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://lkioi.me/categories/swift.xml</loc>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/categories/tribe.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/rss.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://lkioi.me/sitemap.xml</loc>
-  <lastmod>2020-01-11T08:03:00Z</lastmod>
+  <lastmod>2020-03-23T09:32:00Z</lastmod>
  </sitemap>
 </sitemapindex>
