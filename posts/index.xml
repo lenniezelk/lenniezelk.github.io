@@ -1,0 +1,144 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Leonard Kioi</title><link>http://example.org/posts/</link><description>Recent content in Posts on Leonard Kioi</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 20 Mar 2021 14:11:52 +0300</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Pattern Matching in Python</title><link>http://example.org/posts/pattern-matching-python/</link><pubDate>Sat, 20 Mar 2021 14:11:52 +0300</pubDate><guid>http://example.org/posts/pattern-matching-python/</guid><description>Python 3.10 has introduced Pattern Matching. I&amp;rsquo;ve been eager to try this out for some time now. I first found out about pattern matching when I tried out Elixir lang a while back. Python 3.10 is still pre-release, you can download it here or use asdf to install it.
+Let&amp;rsquo;s go through some use-cases which will help in gaining a good grasp of what&amp;rsquo;s possible with pattern matching. In my day job, I use the Django web framework for developing web applications and create RESTful APIs.</description><content type="html"><![CDATA[<p>Python 3.10 has introduced <a href="https://en.wikipedia.org/wiki/Pattern_matching">Pattern Matching</a>. I&rsquo;ve been eager to try this out for some time now. I first found out about pattern matching when I tried out Elixir lang a while back. Python 3.10 is still pre-release, you can download it <a href="https://www.python.org/downloads/release/python-3100a6/">here</a> or use <a href="https://asdf-vm.com/#/">asdf</a> to install it.</p>
+<p>Let&rsquo;s go through some use-cases which will help in gaining a good grasp of what&rsquo;s possible with pattern matching. In my day job, I use the Django web framework for developing web applications and create RESTful APIs. A common pattern when creating objects and saving in DB is:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/60d3b9e545ce122da522a0c803450c64.js"></script>
+
+<p><code>get_or_create</code> returns a tuple of the user and a bool indicating whether the user was created or was just fetched from DB.</p>
+<p>A different approach using pattern matching would be:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/941ccd8709a220729ee6715ba5ae8997.js"></script>
+
+<p>The first case matches when a new user is created, and the second matches when the user was not created.
+Now, this takes away the readability a bit but <code>get_or_create</code> is common enough in Django to allow for this. In most cases weigh out the loss of readability vs the gains particularly in the beginning before pattern matching becomes common in the Python community.</p>
+<p>Pattern matching allows for guards. Let&rsquo;s say you need to carry out some action if the newly created user is a superuser:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/12a0c84cfc94bb03670b80b8e92fe03b.js"></script>
+
+<p>The first case would match for newly created superusers and the second for the other newly created users.</p>
+<p>Another use-case would be pattern matching the response code when fetching data from the internet using for example the requests library:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/e7e4c4427347aa5fdff1bdfd9b66e25b.js"></script>
+
+<p>The <code>401 | 403</code> is combining several literals in a single pattern. In other words <code>401 or 403</code>.</p>
+<p>It is possible to pattern match on dictionary key and values. For example, if you fetch some data and want to extract specific fields from the response dict:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/9032ff0aacf00a59c7dd254d3019f118.js"></script>
+
+<p>The first case captures the values for <code>id</code> and <code>email</code> and ignores the rest.</p>
+<p>I hope this whets your appetite for pattern matching in Python. To learn more on this have a look at Guido&rsquo;s <a href="https://github.com/gvanrossum/patma#tutorial">tutorial</a>.</p>
+]]></content></item><item><title>Python's removesuffix and removeprefix</title><link>http://example.org/posts/python-remove-prefix-suffix/</link><pubDate>Sat, 27 Feb 2021 14:11:52 +0300</pubDate><guid>http://example.org/posts/python-remove-prefix-suffix/</guid><description>Python 3.9 added the string methods removesuffix and removeprefix. When I first saw this I wondered why, since the go-to solution for this is strip, lstrip and rstrip.
+On diving into the documentation, I was surprised to find that strip, lstrip and rstrip treat the input chars as a set of characters to remove not a substring. An example will better explain this. Take for example you have the string test_some_stuff and you want to remove the prefix.</description><content type="html"><![CDATA[<p>Python 3.9 added the string methods <code>removesuffix</code> and <code>removeprefix</code>. When I first saw this I wondered why, since the go-to solution for this is <code>strip</code>, <code>lstrip</code> and <code>rstrip</code>.</p>
+<p>On diving into the documentation, I was surprised to find that <code>strip</code>, <code>lstrip</code> and <code>rstrip</code> treat the input chars as a set of characters to remove not a substring. An example will better explain this. Take for example you have the string <code>test_some_stuff</code> and you want to remove the prefix. The obvious way would be to go for <code>lstrip</code>.</p>
+<pre><code>s = 'test_some_stuff'.lstrip('test_')
+</code></pre><p>The expected output is <code>some_stuff</code>. The actual output is <code>ome_stuff</code>. You see the *strip methods will check the string for any of the set of characters provided and remove those from the string until a non-matching character. In the example above the <code>s</code> is <code>some</code> was also removed.
+The solution is to use <code>removeprefix</code> and/or <code>removesuffix</code>.</p>
+<pre><code>s = 'test_some_stuff'.removeprefix('test_')
+</code></pre><p>Output: <code>some_stuff</code>
+If you desire to dig into this more have a look at the PEP that led to these two methods getting added.
+<a href="https://www.python.org/dev/peps/pep-0616/">https://www.python.org/dev/peps/pep-0616/</a></p>
+]]></content></item><item><title>Named Parameters in Dart, Swift and Python</title><link>http://example.org/posts/named-parameters-in-dart-swift-and-python/</link><pubDate>Mon, 23 Mar 2020 12:20:58 +0300</pubDate><guid>http://example.org/posts/named-parameters-in-dart-swift-and-python/</guid><description>In software development we optimize for readability since code is read more than its written. Named parameters are one way to improve code readability. Lets say we have a function that calculates the distance between two points. I takes two point Point class instances representing the start and end positions. When calling the functions, using positional arguments its not very clear what is being referred to.
+In Python:
+In Dart:</description><content type="html"><![CDATA[<p>In software development we optimize for readability since code is read more than its written. Named parameters are one way to improve code readability. Lets say we have a function that calculates the distance between two points. I takes two point <code>Point</code> class instances representing the start and end positions. When calling the functions, using positional arguments its not very clear what is being referred to.</p>
+<p>In Python:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/d80e6e2bbf9ab513654aa97e43f37fc6.js"></script>
+
+<p>In Dart:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/9edb982793fda8440be6d22219f96129.js"></script>
+
+<p>In Swift:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/100a5abd8670331750435a8b0ff719de.js"></script>
+
+<p>On the other hand, using named parameters makes function calls more expressive, its clear to the reader what the arguments represent. This becomes helpful particularly as the number of arguments grow. Lets add one more argument. In the examples below when calling the functions its not very clear what the third argument is when its being read.</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/fa6f6cd79647c97c2997160a0998d028.js"></script>
+
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/18d19b34c43454518b3195f704d0576f.js"></script>
+
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/694317b02b1abb74cd322fadb8f795a0.js"></script>
+
+<p>Using named parameters is really helpful in such a situation. In the three languages its possible to specify that the parameters should be passed as named parameters. In Python, we can add a <code>*,</code> before the parameters, in dart we can add curly braces around the parameters and in swift we can remove the underscore before the parameter names.</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/1ca8b8c2615e45b779d074c4a57bd7c7.js"></script>
+
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/dfe21e1755ca663ec82b2ea8bf017778.js"></script>
+
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/19c64a6b97bc7c6be70cf8d9f6e508d6.js"></script>
+
+]]></content></item><item><title>Running flutter app on Genymotion</title><link>http://example.org/posts/running-flutter-app-on-genymotion/</link><pubDate>Mon, 15 Jul 2019 11:41:24 +0300</pubDate><guid>http://example.org/posts/running-flutter-app-on-genymotion/</guid><description>To run flutter apps for android development you have the option of running the app on android studio AVDs or genymotion. I prefer genymotion since I find more lightweight and I can run vagrant boxes usually for the backend of the application. This is not possible with AVDs. Flutter fails to recognize the devices created using genymotion. After searching around the internet I could not find a solution so I&amp;rsquo;m going to post what worked for me.</description><content type="html"><![CDATA[<p>To run flutter apps for android development you have the option of running the app on android studio AVDs or genymotion. I prefer genymotion since I find more lightweight and I can run vagrant boxes usually for the backend of the application. This is not possible with AVDs. Flutter fails to recognize the devices created using genymotion. After searching around the internet I could not find a solution so I&rsquo;m going to post what worked for me.</p>
+<p>Ensure you have installed the Android SDKs for the target platforms. You can do this from the SDK manager in Android Studio. Launch Genymotion. On the menu bar go to: <code>Genymotion &gt; Settings</code>. This will launch a dialog box. Select <code>ADB</code> in the dialog. Enter the path to your Android SDK folder. For example on my local setup this is <code>/home/lk/Android/Sdk</code>. Restart Genymotion and launch your devices. I had some problems with devices I had created before I made these changes. In this case I deleted and recreated them. When you run <code>flutter devices</code> your launched device should appear now. Run <code>flutter run</code> to launch the app. Happy fluttering.</p>
+]]></content></item><item><title>Flutter loading screen with future builder</title><link>http://example.org/posts/flutter-loading-screen-with-future-builder/</link><pubDate>Thu, 11 Jul 2019 10:43:59 +0300</pubDate><guid>http://example.org/posts/flutter-loading-screen-with-future-builder/</guid><description>When developing UIs you need to give the user some feedback on a long running process. A loading widget is normally the go to solution. In React you would have a boolean property in the components state. If for example you are fetching some data from the internet, you would set the boolean to true. In the component&amp;rsquo;s render method you would display a loading widget based on the value of that boolean property.</description><content type="html"><![CDATA[<p>When developing UIs you need to give the user some feedback on a long running process. A loading widget is normally the go to solution. In React you would have a boolean property in the components state. If for example you are fetching some data from the internet, you would set the boolean to <code>true</code>. In the component&rsquo;s <code>render</code> method you would display a loading widget based on the value of that boolean property. When you have your data you show the right component. Something like:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/9032ff0aacf00a59c7dd254d3019f118.js"></script>
+
+<p>This can be achieved easily in Flutter with <a href="https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html">Future Builder</a>. FutureBuilder allows you to specify a future and a builder function. The builder function will be passed snapshots based on the state of the future. You can then check the snapshot and display your loading widget. The same can be achieved by using viewmodels and state management tools like <a href="https://pub.dev/packages/provider">Provide</a>. This is so much easier though. Example:</p>
+<script type="application/javascript" src="https://gist.github.com/lenniezelk/7275c14bcd1b61d3e190b80b4895c524.js"></script>
+
+]]></content></item><item><title>Setting up Dart for local development</title><link>http://example.org/posts/setting-up-dart-for-local-development/</link><pubDate>Tue, 28 May 2019 11:23:34 +0300</pubDate><guid>http://example.org/posts/setting-up-dart-for-local-development/</guid><description>I&amp;rsquo;ve been learning Flutter for mobile development lately. I like the journey so far and I&amp;rsquo;m going to be posting stuff I learn along the way. First i&amp;rsquo;ll show how to setup Dart for local development. I use asdf for managing different versions of language runtimes on my local machine. I found out about it when trying to setup different Python versions. My dev machine comes with Python 3.7 but at work we use Python 3.</description><content type="html"><![CDATA[<p>I&rsquo;ve been learning Flutter for mobile development lately. I like the journey so far and I&rsquo;m going to be posting stuff I learn along the way. First i&rsquo;ll show how to setup Dart for local development. I use <code>asdf</code> for managing different versions of language runtimes on my local machine. I found out about it when trying to setup different Python versions. My dev machine comes with Python 3.7 but at work we use Python 3.6 and I like having the exact version in use. What to do? <code>asdf</code> to the rescue. <code>asdf</code> has a plugin system that allows allows the installation of different langauge runtimes for example you can install Python 3.5, 3.6 and 3.8 on the same machine and switch between them. A lot of langauges are supported you can find these <a href="https://asdf-vm.com/#/plugins-all">here</a>.</p>
+<p>To setup <code>asdf</code> run:</p>
+<pre><code>#!shell
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2`
+</code></pre><p>Replace <code>0.7.2</code> with the latest version which you can find <a href="https://github.com/asdf-vm/asdf/releases">here</a>. Next add <code>asdf</code> to your shell like so:</p>
+<pre><code>#!shell
+echo -e '\n. $HOME/.asdf/asdf.sh' &gt;&gt; ~/.zshrc
+echo -e '\n. $HOME/.asdf/completions/asdf.bash' &gt;&gt; ~/.zshrc
+</code></pre><p>Remember to replace <code>.zshrc</code> with your shell specific config file e.g .bashrc. Reload your config file <code>source .zshrc</code>. You are good to go.</p>
+<p>Now lets setup dart. We begin by installing the dart plugin:</p>
+<pre><code>#!shell
+asdf plugin-add dart
+</code></pre><p>Now we can install dart sdk and tools by running:</p>
+<pre><code>#!shell
+asdf install dart 2.3.1
+</code></pre><p>Replace 3.2.1 with the latest version or the version you want. You can find these <a href="https://github.com/dart-lang/sdk/releases">here</a>. You need to choose a global version. This is the version that will be run when you type <code>dart</code> in any shell. You can do this by:</p>
+<pre><code>#!shell
+asdf global dart 2.3.1
+</code></pre><p>You can also set a version to be used only in the current shell:</p>
+<pre><code>#!shell
+asdf local dart 2.3.1
+</code></pre><p>Happy darting.</p>
+]]></content></item><item><title>Get your PRs merged faster</title><link>http://example.org/posts/get-your-prs-merged-faster/</link><pubDate>Mon, 11 Mar 2019 11:21:07 +0300</pubDate><guid>http://example.org/posts/get-your-prs-merged-faster/</guid><description>Every developer wants their code in production as soon as possible. I am assuming you are in a team or at least have someone else to review your code before its merged into staging or production environments. In the past two years I have seen an improvement in the time it takes to get my code merged.
+I&amp;rsquo;ve had my PRs waiting for review for days on end. Its annoying to say the least.</description><content type="html"><![CDATA[<p>Every developer wants their code in production as soon as possible. I am assuming you are in a team or at least have someone else to review your code before its merged into staging or production environments. In the past two years I have seen an improvement in the time it takes to get my code merged.</p>
+<p>I&rsquo;ve had my PRs waiting for review for days on end. Its annoying to say the least. I&rsquo;ll share a few points that helped me get my PRs reviewed and merged a lot faster.</p>
+<h2 id="its-a-team-thing">Its a team thing.</h2>
+<p>As developers we tend to be fiercely independent. This unfortunately does not help deliver products to clients any faster. As a team you need to learn to set aside your individual goals and work on team goals. I used to say things like &ldquo;I managed to complete all the tasks I set out to do this week&rdquo; during retro. Now I try to see did we complete all tasks assigned to our team. Changing this mindset is hard and slow but its worth the results.
+Agree as a team to be setting aside time to review each other&rsquo;s PRs. Maybe at the start of the day and end of the day. This will leave you with enough time to focus on your tasks.</p>
+<h2 id="have-a-good-relationship-with-your-team-mates">Have a good relationship with your team mates.</h2>
+<p>Try and have a good relationship with your team mates. Be interested in them as people. This helps resolve any conflicts when they do arise and we all work better with people we like. Remember at some point you will need help from your team mates and having a good relationship with them allows you to ask for help without things getting weird.</p>
+<h2 id="write-clean-code">Write clean code.</h2>
+<p>Write good code. No one likes to read spaghetti code and super huge functions in which you have to spend a lot of time piecing together. If you regularly write bad code, your team mates will avoid your PRs and only check them when its completely unavoidable. This is a skill that can be learnt. There are good books and articles out there for this. A quick google search will guide you.</p>
+]]></content></item><item><title>Improving readability of Python code</title><link>http://example.org/posts/type-hints-in-python/</link><pubDate>Sat, 24 Nov 2018 14:11:52 +0300</pubDate><guid>http://example.org/posts/type-hints-in-python/</guid><description>Readability of code as defined in wikipedia:
+In computer programming, readability refers to the ease with which a human reader can comprehend the purpose, control flow, and operation of source code Python is one of the most readable programming languages out there but we can still improve this more by following software development best practises and tools provided by Python core language and the Python community. By software development best practises I am referring to writing clean code.</description><content type="html"><![CDATA[<p>Readability of code as defined in wikipedia:</p>
+<pre><code>In computer programming, readability refers to the ease with which a human reader can comprehend the purpose,
+control flow, and operation of source code
+</code></pre><p>Python is one of the most readable programming languages out there but we can still improve this more by following software
+development best practises and tools provided by Python core language and the Python community. By software development best practises
+I am referring to writing clean code. Watch things like:</p>
+<ul>
+<li>Use good descriptive variable and function names</li>
+<li>Follow SOLID priciples</li>
+<li>Keep functions short</li>
+<li>Follow coding conventions for your programming language e.g PEP8</li>
+</ul>
+<p>For Python, type hinting is also a good option since version 3.5. This will be my main focus for this article.</p>
+<p>In this article I am only going to refer to tools specific to Python, later I will add another article on SOLID with examples in Python.
+Python uses duck typing to determine the type of a variable. This usually leads to criticism where people say it reduces
+readability and I agree with them. I have been using Python for the past five years and its annoying having to read a
+function body in order know the type of parameters passed in. If its a dictionary passed in or tuple its worse because you
+have to look through the code to know the type of keys and values of the <code>dict</code>. I&rsquo;ve had to add print statements to determine
+the type being passed in.</p>
+<pre><code>#!python
+def check_status(project, date):
+    pass
+</code></pre><p>In the code above <code>project</code> and <code>date</code> could be anything. Proper naming of the variables helps but still, <code>project</code> could
+be an <code>int</code>, the project database id or a user defined class instance. <code>date</code> could be an <code>int</code> or <code>datetime.date</code> object.
+This is the problem typing module was added to solve. I don&rsquo;t think types within the function body are a huge deal since
+you can usually determine this from the context, even in Kotlin you don&rsquo;t have to specify the type when declaring a variable
+it can usually be infered from the context.</p>
+<p>With Python&rsquo;s type hints you can specify the parameter being passed to a function.</p>
+<pre><code>#!python
+from datetime import date
+
+from .projects import Project
+
+def check_status(project: Project, date: date):
+    pass
+</code></pre><p>I&rsquo;m a huge fan of namedtuples, they have a smaller memory footprint compared to classes and are more descriptive that tuples. Typing
+takes their descriptiveness to a new level. You can specify the type for the field names.</p>
+<pre><code>from typing import NamedTuple
+
+class Truck(NamedTuple):
+    num_wheels: int
+    num_axles: int
+</code></pre>]]></content></item></channel></rss>
