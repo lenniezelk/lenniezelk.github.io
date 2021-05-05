@@ -7,7 +7,7 @@ theme = "hello-friend-ng"
 
 
 [params]
-homeSubtitle = "Software Craftsman - I love to build stuff."
+homeSubtitle = "Software Craftsman | Maker"
 description = "Portfolio site for Leonard Kioi Kinyanjui"
 keywords = "portfolio,leonard,kioi,kinyanjui,software,software craftsman,engineer"
 enableThemeToggle = true
