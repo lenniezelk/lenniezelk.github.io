@@ -12,29 +12,36 @@ description = "Portfolio site for Leonard Kioi Kinyanjui"
 keywords = "portfolio,leonard,kioi,kinyanjui,software,software craftsman,engineer"
 enableThemeToggle = true
 
-[[params.social]]
-name = "twitter"
-url  = "https://twitter.com/lk_kioi"
-
-[[params.social]]
-name = "email"
-url  = "mailto:lenny.kinyanjui.lk@gmail.com"
-
-[[params.social]]
-name = "github"
-url  = "https://github.com/lenniezelk"
 
 [[params.social]]
 name = "linkedin"
 url  = "https://www.linkedin.com/in/leonard-kioi-b6954841"
 
+
 [[params.social]]
-name = "youtube"
-url  = "https://www.youtube.com/channel/UC2yJRA9AaNxcJZjihIN8r0Q"
+name = "github"
+url  = "https://github.com/lenniezelk"
+
 
 [[params.social]]
 name = "dev"
 url  = "https://dev.to/lenniezelk"
+
+
+[[params.social]]
+name = "twitter"
+url  = "https://twitter.com/lk_kioi"
+
+
+[[params.social]]
+name = "email"
+url  = "mailto:lenny.kinyanjui.lk@gmail.com"
+
+
+[[params.social]]
+name = "youtube"
+url  = "https://www.youtube.com/channel/UC2yJRA9AaNxcJZjihIN8r0Q"
+
 
 [menu]
   [[menu.main]]
